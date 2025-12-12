@@ -1,15 +1,27 @@
 /*************************************************************
 * Name: Cory Davis
-* Date: 11/30/2025
+* Date: 12/7/2025
 * Assignment: Course Project
 * Description: manages all user achievements
 *************************************************************/
 
-using System.Collections.Generic;
-
 public class AchievementManager
 {
-    public List<Achievement> Achievements { get; private set; } = new();
+    private Database db;
+
+    public List<Achievement> Achievements { get; private set; }
+
+    public AchievementManager(Database database)
+    {
+        db = database;
+        Achievements = db.LoadAchievements();
+    }
+
+    public void Add(Achievement a)
+    {
+        Achievements.Add(a);
+        db.SaveAchievement(a);
+    }
 
     public void CheckTaskAchievements(TaskItem t)
     {
@@ -25,7 +37,4 @@ public class AchievementManager
 
     private bool Has(string title) =>
         Achievements.Exists(a => a.Title == title);
-
-    private void Add(Achievement a) =>
-        Achievements.Add(a);
 }

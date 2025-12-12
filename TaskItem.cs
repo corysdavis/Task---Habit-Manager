@@ -1,6 +1,6 @@
 /*************************************************************
 * Name: Cory Davis
-* Date: 11/30/2025
+* Date: 12/7/2025
 * Assignment: Course Project
 * Description: represents a single task with details, completion state and formatting
 *************************************************************/

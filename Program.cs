@@ -1,6 +1,6 @@
 ﻿/*************************************************************
 * Name: Cory Davis
-* Date: 11/30/2025
+* Date: 12/7/2025
 * Assignment: Course Project
 * Description: main application class
 *************************************************************/
@@ -11,10 +11,12 @@ using System;
 public class Program
 {
     static void Main()
-    {
-        TaskManager tManager = new();
-        HabitManager hManager = new();
-        AchievementManager aManager = new();
+{
+    Database db = new();
+
+    TaskManager tManager = new(db);
+    HabitManager hManager = new(db);
+    AchievementManager aManager = new(db);
 
         Console.WriteLine("Task & Habit Manager\n");
 
